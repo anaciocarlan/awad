@@ -10,6 +10,13 @@ class QuotesController < ApplicationController
     end
   end
 
+  
+  def import
+	Quote.import(params[:file])
+	redirect_to root_url, notice: "Quotes imported."
+  end
+
+  
   # GET /quotes/1
   # GET /quotes/1.json
   def show

@@ -25,3 +25,14 @@
 <br />
 
 <%= link_to 'New Quote', new_quote_path %>
+
+
+
+<h2>Import Quotes:</h2>
+
+<%= form_tag import_quotes_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
+
+

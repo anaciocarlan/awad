@@ -1,5 +1,8 @@
 Fq::Application.routes.draw do
-  resources :quotes
+  resources :quotes do
+	collection { post :import }
+  end
+  root to: 'quotes#index'
 
 
   # The priority is based upon order of creation:
