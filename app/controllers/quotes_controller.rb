@@ -2,7 +2,12 @@ class QuotesController < ApplicationController
   # GET /quotes
   # GET /quotes.json
   def index
-    @quotes = Quote.all
+    if (params[:starts_with])
+      @quotes = Quote.by_first_letter(params[:starts_with])
+    else
+      @quotes = Quote.all
+	end
+
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,6 +30,9 @@ class QuotesController < ApplicationController
 	redirect_to root_url, notice: "Quotes imported."
   end
 
+	def search
+		@quotes = Quote.find(:all, :conditions => ["author LIKE ?", "%#{params[:key]}%"])
+	end 
   
   # GET /quotes/1
   # GET /quotes/1.json

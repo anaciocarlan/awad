@@ -1,5 +1,21 @@
 <h1>Listing quotes</h1>
 
+<h3>Search by Author:</h3>
+<form id=myform action ="quotes/search" method="post">
+<input name = "key" type="input" />
+<input value="Send" type="submit"/>
+</form> 
+
+
+<h2>
+<% ('A'...'Z').each do |letter| -%>
+<%= link_to letter, quotes_path(:starts_with => letter) %>
+<% end -%></h2>
+<h2>
+<%= link_to 'See all entries', quotes_path %>
+</h2>
+
+
 <table>
   <tr>
     <th>Id</th>

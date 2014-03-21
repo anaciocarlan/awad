@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>Search results
+</title>
+</head>
+<body>
+<h1>Search results</h1>
+<table border="1">
+<tr>
+<td><p align="center"><i><b>Search Results</b></i></td>
+<td><p align="center"><i><b>Quote</b></i></td>
+</tr>
+<% @quotes.each do |quote| %>
+<tr>
+<td><a href="<%=quote.id%>"><%=quote.author%></a>
+<td><%=quote.quote%></td>
+</td>
+
+</tr>
+<% end %>
+</table>
+<p> <a href="/quotes"> Back</a> </body>
+</html>

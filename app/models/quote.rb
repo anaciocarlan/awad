@@ -1,6 +1,11 @@
 class Quote < ActiveRecord::Base
   attr_accessible :author, :id, :quote
   
+
+  def self.by_first_letter(initial)
+    all(:conditions => "author like '#{initial}%'")
+  end
+  
   def self.to_csv(options = {})
 	CSV.generate(options) do |csv|
 		csv << column_names

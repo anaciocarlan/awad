@@ -3,8 +3,13 @@ Fq::Application.routes.draw do
 	get "quotes/randq" => "quotes#randq"
   match "/auth/twitter/callback" => "sessions#create"
   match "/signout" => "sessions#destroy", :as => :signout
+  
+    resources :quotes do
+	collection { post :import }
+	post 'search', :on =>:collection
+  end
     resources :tweets, only: [:new, :create]
-  resources :quotes do
+	resources :quotes do
 	collection { post :import }
   end
   root to: 'quotes#home'
