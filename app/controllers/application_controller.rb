@@ -9,4 +9,9 @@ class ApplicationController < ActionController::Base
 	@current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
   
+  def mobile_device?
+	request.user_agent =~ /Mobile|webOS/
+  end
+  helper_method :mobile_device?
+  
 end
