@@ -1,39 +1,37 @@
-<h1>Listing quotes</h1>
 
-<h3>Search by Author:</h3>
+
 <form id=myform action ="quotes/search" method="post">
 <input name = "key" type="input" />
-<input value="Send" type="submit"/>
+<input value="Search Author" type="submit"/>
 </form> 
 
 
-<h2>
+
+<h3>
 <% ('A'...'Z').each do |letter| -%>
 <%= link_to letter, quotes_path(:starts_with => letter) %>
-<% end -%></h2>
-<h2>
-<%= link_to 'See all entries', quotes_path %>
-</h2>
+<% end -%>
+
+<%= link_to 'All Quotes', quotes_path %>
+</h3>
 
 <div id="allquotes">
-<table>
+<table class="tab">
   <tr>
-    <th>Id</th>
+   
     <th>Author</th>
     <th>Quote</th>
-    <th></th>
-    <th></th>
-    <th></th>
+
+
   </tr>
 
 <% @quotes.each do |quote| %>
   <tr>
-    <td><%= quote.id %></td>
-    <td><%= quote.author %></td>
+  
+    <td><%= link_to quote.author, quote %></td>
     <td><%= quote.quote %></td>
-    <td><%= link_to 'Show', quote %></td>
-    <td><%= link_to 'Edit', edit_quote_path(quote) %></td>
-    <td><%= link_to 'Destroy', quote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+    
   </tr>
 <% end %>
 </table>
@@ -41,15 +39,8 @@
 
 <br />
 
-<%= link_to 'New Quote', new_quote_path %>
 
 
 
-<h2>Import Quotes:</h2>
-
-<%= form_tag import_quotes_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
-<% end %>
 
 

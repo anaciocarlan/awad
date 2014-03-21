@@ -1,5 +1,19 @@
-<h1>New quote</h1>
+<p>As a registered user, you can contribute to developing Famous Quotes by adding new quotes. You can import multiple quotes using a .csv file or use the form below to submit a single quote. Thank you!</p>
+
+<h4>Import Quotes:</h4>
+
+<%= form_tag import_quotes_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
+
+<br/>
+
+<h4>Submit Quote:</h4>
 
 <%= render 'form' %>
+
+
+
 
 <%= link_to 'Back', quotes_path %>

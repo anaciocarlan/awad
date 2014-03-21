@@ -1,9 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Id:</b>
-  <%= @quote.id %>
-</p>
 
 <p>
   <b>Author:</b>
@@ -18,11 +14,11 @@
 
 
 <% if !current_user.nil? %>   
-<p>Click The link below to send a tweet.</p>  
+<h4>Click The link below to send a tweet.</h4>  
 <%= link_to "Send a Tweet", new_tweet_path %>
 <% else %>  
-<p>You must log in to send a tweet.</p>
+<p style="color: red;">You must log in to send a tweet!</p>
 <% end %>
 
-<%= link_to 'Edit', edit_quote_path(@quote) %> |
+
 <%= link_to 'Back', quotes_path %>

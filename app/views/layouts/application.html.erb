@@ -18,7 +18,10 @@ text-justify:inter-word;
 
 table, td, th
 {
-border:1px solid black;
+border:1px solid #ccc;
+    border-width:1px 0;
+    list-style:none;
+	
 }
 td
 {
@@ -47,6 +50,13 @@ padding:15px;
 	text-decoration:none; 
 	text-transform:uppercase;
 }
+
+.tab a{
+	color:orange;
+	font-weight:bold;
+	text-decoration:none; 
+	text-transform:uppercase;
+}
 </style>
 
   
@@ -62,6 +72,7 @@ padding:15px;
 	<ul class="nav">
 	<li><%= link_to "Home", :action => 'home' %></li>
 	<li><%= link_to "All quotes", :action => 'index' %></li>
+	<li><%= link_to 'Add New Quotes', new_quote_path %></li>
 	<li><%= link_to "Sign Out", signout_path %></li>
 	</ul>
 
