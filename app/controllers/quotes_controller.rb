@@ -10,6 +10,15 @@ class QuotesController < ApplicationController
     end
   end
 
+    def home
+	end
+  
+  
+	def randq
+		@quotes = Quote.all
+		@x=Quote.find(:first, :order => "RANDOM()")
+		render :layout => false
+	end
   
   def import
 	Quote.import(params[:file])

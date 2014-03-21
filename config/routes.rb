@@ -1,13 +1,14 @@
 Fq::Application.routes.draw do
-
+	get "quotes/home"
+	get "quotes/randq" => "quotes#randq"
   match "/auth/twitter/callback" => "sessions#create"
   match "/signout" => "sessions#destroy", :as => :signout
     resources :tweets, only: [:new, :create]
   resources :quotes do
 	collection { post :import }
   end
-  root to: 'quotes#index'
-
+  root to: 'quotes#home'
+  match ':controller(/:action(/:id))(.:format)'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

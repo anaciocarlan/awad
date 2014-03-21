@@ -1,0 +1,13 @@
+<h1>Press the button to generate a new quote:</h1>
+
+
+<button id="button" onclick="myFunction()">Quote</button>
+
+<div id="fq"></div>
+<script>
+function myFunction()
+{
+$( "#fq" ).load( "/quotes/randq" );
+}
+</script>
+
