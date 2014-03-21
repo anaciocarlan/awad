@@ -5,23 +5,84 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  
+  
+  
+  
+<style>
+#allquotes
+{
+text-align:justify;
+text-justify:inter-word;
+}
+
+table, td, th
+{
+border:1px solid black;
+}
+td
+{
+padding:15px;
+}
+
+
+
+
+
+.nav{
+    border:1px solid #ccc;
+    border-width:1px 0;
+    list-style:none;
+    margin:0;
+    padding:0;
+    text-align:center;
+}
+.nav li{
+    display:inline;
+}
+.nav a{
+    display:inline-block;
+    padding:10px;
+	font-weight:bold;
+	text-decoration:none; 
+	text-transform:uppercase;
+}
+</style>
+
+  
 </head>
 <body>
 
 <div id="user_nav">
+	<center>
+	<%= image_tag("fq.jpg", :alt => "fq") %>
 	<% if current_user %>
-	<%= link_to "Home", :action => 'home' %>
-	<%= link_to "All quotes", :action => 'index' %>
-	Welcome <%= current_user.name %>!
-	<%= link_to "Sign Out", signout_path %>
 	
-	Here are you favourite quotes:
+	
+	<ul class="nav">
+	<li><%= link_to "Home", :action => 'home' %></li>
+	<li><%= link_to "All quotes", :action => 'index' %></li>
+	<li><%= link_to "Sign Out", signout_path %></li>
+	</ul>
+
+<br/>	
+	
+	<h2>Welcome <%= current_user.name %>!</h2>
+
+	
+
 	<% else %>
-	<%= link_to "Home", :action => 'home' %>
-	<%= link_to "All quotes", :action => 'index' %>
-	Welcome Guest!
-	<%= link_to "Sign in with Twitter", "/auth/twitter" %>
+	
+	<ul class="nav">
+	<li><%= link_to "Home", :action => 'home' %></li>
+	<li><%= link_to "All quotes", :action => 'index' %></li>
+	<li><%= link_to "Twitter Login", "/auth/twitter" %></li>
+	</ul>
+	
+	<h2>Welcome Guest!</h2>
+	
 	<% end %>
+	</center>
 </div>
 
 
